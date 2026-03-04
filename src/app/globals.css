@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root{
+  --egmr-ink: #0b1f2a;
+  --egmr-navy: #0f2d3a;
+  --egmr-teal: #1f6b86;
+  --egmr-sky: #7bb7d8;
+  --egmr-bg: #f4f7fb;
+  --egmr-border: rgba(15, 45, 58, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* evita que el navbar sticky tape los títulos al navegar con #links */
+section[id]{
+  scroll-margin-top: 90px;
+}
+
+body{
+  background: var(--egmr-bg);
+  color: #0b0f14;
+}
