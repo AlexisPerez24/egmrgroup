@@ -64,7 +64,7 @@ export default function QuienesSomos() {
               <div className="rounded-2xl border bg-white p-6 border-slate-200">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-slate-100 border border-slate-200">
-                    🏅
+                    
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Calidad</h4>
@@ -79,7 +79,7 @@ export default function QuienesSomos() {
               <div className="rounded-2xl border bg-white p-6 border-slate-200">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-slate-100 border border-slate-200">
-                    📣
+                    
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Comunicación</h4>
@@ -97,7 +97,7 @@ export default function QuienesSomos() {
               <div className="rounded-2xl border bg-white p-6 border-slate-200">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-slate-100 border border-slate-200">
-                    ⚙️
+                    
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Innovación</h4>

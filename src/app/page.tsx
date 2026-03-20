@@ -7,19 +7,43 @@ import QuienesSomos from "../components/QuienesSomos";
 import Contacto from "../components/Contacto";
 import Footer from "../components/Footer";
 
+import Reveal from "../components/Reveal";
+import WhatsappFloat from "../components/WhatsappFloat";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <Hero />
 
-      <ServiciosCotizacion />
-      <OtrosServicios />
-      <Rentas />
-      <QuienesSomos />
-      <Contacto />
+      <Reveal>
+        <Hero />
+      </Reveal>
 
-      <Footer />
+      <Reveal>
+        <ServiciosCotizacion />
+      </Reveal>
+
+      <Reveal>
+        <OtrosServicios />
+      </Reveal>
+
+      <Reveal>
+        <Rentas />
+      </Reveal>
+
+      <Reveal>
+        <QuienesSomos />
+      </Reveal>
+
+      <Reveal>
+        <Contacto />
+      </Reveal>
+
+      <Reveal>
+        <Footer />
+      </Reveal>
+
+      <WhatsappFloat />
     </main>
   );
 }
