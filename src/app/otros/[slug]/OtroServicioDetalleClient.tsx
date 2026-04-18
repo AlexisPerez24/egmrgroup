@@ -12,6 +12,7 @@ type Service = {
   descripcion: string;
   bullets: string[];
   icon: string;
+  catalogLink?: string; // ¡NUEVO! La propiedad es opcional con '?'
 };
 
 type FormState = {
@@ -122,6 +123,26 @@ export default function OtroServicioDetalleClient({
       {/* CONTENIDO */}
       <section className="py-12 sm:py-16 bg-[color:var(--egmr-bg)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+          {/* Bloque para el catálogo de Papelería, solo si el servicio es 'papeleria' */}
+          {service.key === "papeleria" && service.catalogLink && (
+            <div className="rounded-3xl border bg-white p-5 sm:p-8 shadow-sm border-slate-200">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                Ver Catálogo de Productos
+              </h2>
+              <p className="text-slate-600 mt-2 mb-4 text-sm sm:text-base leading-relaxed">
+                Explora nuestro amplio surtido de papelería y equipos de oficina.
+              </p>
+              <Link
+                href={service.catalogLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl font-semibold px-4 py-3 bg-[color:var(--egmr-teal)] text-white hover:brightness-110 transition text-sm sm:text-base"
+              >
+                Abrir Catálogo
+              </Link>
+            </div>
+          )}
+
           <div className="rounded-3xl border bg-white p-5 sm:p-8 shadow-sm border-slate-200">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               ¿Qué incluye este servicio?

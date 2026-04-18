@@ -21,6 +21,12 @@ export default function OtrosServicios() {
       desc: "Prevención, instalación y soporte de sistemas de seguridad.",
       icon: "/icons/incendios.png",
     },
+    {
+      key: "papeleria",
+      titulo: "Papelería y equipo de oficina",
+      desc: "Todo lo necesario para tu oficina, desde insumos hasta equipos.",
+      icon: "/icons/papeleria.png", // Asegúrate de tener este ícono en tu proyecto
+    },
   ];
 
   return (

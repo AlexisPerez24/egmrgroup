@@ -47,6 +47,22 @@ const otrosServicios = [
     ],
     icon: "/icons/incendios.png",
   },
+  {
+    key: "papeleria",
+    titulo: "Papelería y equipo de oficina",
+    badge: "Suministros y equipos",
+    resumen: "Todo lo necesario para tu oficina, desde insumos hasta equipos.",
+    descripcion:
+      "Ofrecemos un amplio catálogo de papelería y equipos de oficina para asegurar que tu empresa tenga todo lo indispensable para su operación diaria.",
+    bullets: [
+      "Amplia variedad de productos",
+      "Entrega a domicilio",
+      "Asesoría personalizada",
+      "Precios competitivos",
+    ],
+    icon: "/icons/papeleria.png",
+    catalogLink: "/catalogos/catalogo-papeleria.pdf", // ¡NUEVO! Define aquí la URL de tu catálogo
+  },
 ];
 
 type Props = {
