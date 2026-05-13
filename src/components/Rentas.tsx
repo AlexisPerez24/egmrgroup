@@ -9,11 +9,6 @@ export default function Rentas() {
       desc: "Renta para oficina con soporte y acompañamiento.",
       icon: "/icons/impresoras.png",
     },
-    {
-      titulo: "Equipo de cómputo",
-      desc: "Equipos para casa u oficina, según disponibilidad.",
-      icon: "/icons/computo.png",
-    },
   ];
 
   function waLink(servicio: string) {

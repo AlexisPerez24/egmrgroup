@@ -60,8 +60,8 @@ const otrosServicios = [
       "Asesoría personalizada",
       "Precios competitivos",
     ],
-    icon: "/icons/papeleria.png",
-    catalogLink: "/catalogos/catalogo-papeleria.pdf", // ¡NUEVO! Define aquí la URL de tu catálogo
+    icon: "/icons/papeleria.png",//imagen de papepleria
+    catalogLink: "/catalogos/catalogo-papeleria.pdf",
   },
 ];
 

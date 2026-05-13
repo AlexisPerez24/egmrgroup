@@ -1,3 +1,5 @@
+import HomePage from './home/page';  // Importa la nueva página de inicio
+
 import "./globals.css";
 
 export const metadata = {
@@ -12,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        {/* Aquí estamos renderizando la nueva página de inicio */}
+        <HomePage />
+      </body>
     </html>
   );
 }

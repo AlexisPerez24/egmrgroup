@@ -25,7 +25,7 @@ export default function OtrosServicios() {
       key: "papeleria",
       titulo: "Papelería y equipo de oficina",
       desc: "Todo lo necesario para tu oficina, desde insumos hasta equipos.",
-      icon: "/icons/papeleria.png", // Asegúrate de tener este ícono en tu proyecto
+      icon: "/icons/papeleria.png",
     },
   ];
 
