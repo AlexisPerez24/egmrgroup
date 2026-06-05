@@ -11,43 +11,7 @@ import WhatsappFloat from "../components/WhatsappFloat";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* HERO */}
-      <Reveal>
-        <Hero />
-      </Reveal>
-
-      {/* SECCIÓN DE SERVICIOS */}
-      <Reveal>
-        <ServiciosCotizacion />
-      </Reveal>
-
-      {/* OTROS SERVICIOS */}
-      <Reveal>
-        <OtrosServicios />
-      </Reveal>
-
-      {/* RENTA */}
-      <Reveal>
-        <Rentas />
-      </Reveal>
-
-      {/* QUIENES SOMOS */}
-      <Reveal>
-        <QuienesSomos />
-      </Reveal>
-
-      {/* CONTACTO */}
-      <Reveal>
-        <Contacto />
-      </Reveal>
-
-      {/* FOOTER */}
-      <Reveal>
-        <Footer />
-      </Reveal>
-
-      {/* WHATSAPP FLOAT */}
-      <WhatsappFloat />
+      <Reveal><Hero /></Reveal>
     </main>
   );
 }

@@ -12,7 +12,7 @@ type Service = {
   descripcion: string;
   bullets: string[];
   icon: string;
-  catalogLink?: string; // ¡NUEVO! La propiedad es opcional con '?'
+  catalogLink?: string;
 };
 
 type FormState = {
