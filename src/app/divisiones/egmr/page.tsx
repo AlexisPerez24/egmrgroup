@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../../../components/Navbar";
 import Reveal from "../../../components/Reveal";
 import Contacto from "../../../components/Contacto";
@@ -44,82 +45,101 @@ export default function DivisionEGMR() {
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION
           ════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-20 pb-32">
+      <section className="relative overflow-hidden" style={{ minHeight: "92vh" }}>
+        {/* Background */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(135deg, #0f2d3a 0%, #1f6b86 50%, #0f2d3a 100%)",
+            background: "linear-gradient(135deg, #071318 0%, #0f2d3a 45%, #1a5068 100%)",
           }}
         />
 
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[color:var(--egmr-teal)]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        {/* Diagonal accent stripe — like el banner */}
+        <div
+          className="absolute top-0 right-0 h-full w-1/2 opacity-25 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(135deg, transparent 45%, #1f6b86 45%, #0ea5e9 58%, transparent 58%)",
+          }}
+        />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Glow orbs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(14,116,144,0.15) 0%, transparent 70%)" }} />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 flex items-center" style={{ minHeight: "92vh" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full py-20">
+
+            {/* ── LEFT: Texto ── */}
             <div className="text-white">
               <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur">
-                <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
                 <span className="text-sm font-semibold uppercase tracking-widest">
                   Soluciones de Seguridad
                 </span>
               </div>
 
-              <h1 className="text-6xl sm:text-7xl font-black mb-6 leading-tight">
+              <h1 className="font-black mb-4 leading-tight" style={{ fontSize: "clamp(48px, 9vw, 80px)" }}>
                 SISTEMAS DE
-                <span className="block text-[color:var(--egmr-teal)]">SEGURIDAD</span>
+                <span className="block" style={{ color: "#38bdf8" }}>SEGURIDAD</span>
               </h1>
 
-              <p className="text-xl text-white/80 mb-8 leading-relaxed max-w-lg">
-                Protegemos lo que más te importa. Soluciones integrales de seguridad y
-                telecomunicaciones diseñadas para empresas que valoran la confianza y la
-                excelencia.
+              <p className="text-lg font-bold uppercase tracking-widest mb-4" style={{ color: "rgba(186,230,253,0.85)" }}>
+                Protegemos lo que más te importa
+              </p>
+
+              <p className="text-base mb-10 leading-relaxed max-w-lg" style={{ color: "rgba(186,230,253,0.65)" }}>
+                Instalación, mantenimiento y soporte de cámaras, videoporteros,
+                control de acceso y grabación. Tecnología confiable para tu negocio o hogar.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
                 <Link
                   href="#servicios"
-                  className="px-8 py-4 rounded-lg bg-white text-[color:var(--egmr-ink)] font-bold text-lg hover:bg-white/90 transition transform hover:scale-105"
+                  className="px-8 py-4 rounded-xl font-bold text-base transition transform hover:scale-105"
+                  style={{ background: "#fff", color: "#071318" }}
                 >
-                  Conocer servicios
+                  Nuestros servicios →
+                </Link>
+                <Link
+                  href="#contacto"
+                  className="px-8 py-4 rounded-xl font-bold text-base border transition hover:bg-white/10"
+                  style={{ borderColor: "rgba(56,189,248,0.4)", color: "#bae6fd" }}
+                >
+                  Cotizar ahora
                 </Link>
               </div>
 
-              <div className="flex gap-8">
+              <div className="flex gap-10">
                 <div>
-                  <div className="text-3xl font-black text-[color:var(--egmr-teal)]">
-                    24/7
-                  </div>
-                  <p className="text-sm text-white/60">Soporte continuo</p>
+                  <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>24/7</div>
+                  <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Soporte continuo</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-[color:var(--egmr-teal)]">
-                    +100
-                  </div>
-                  <p className="text-sm text-white/60">Clientes satisfechos</p>
+                  <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>+100</div>
+                  <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Clientes satisfechos</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-[color:var(--egmr-teal)]">
-                    2020
-                  </div>
-                  <p className="text-sm text-white/60">Desde Tijuana</p>
+                  <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>2020</div>
+                  <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Desde Tijuana</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative h-96 lg:h-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--egmr-teal)]/30 to-blue-600/30 rounded-3xl border border-white/10 backdrop-blur-xl p-8 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-7xl mb-4">🔒</div>
-                  <p className="text-white/80 text-lg font-semibold">
-                    PROTECCIÓN INTEGRAL
-                  </p>
-                  <p className="text-white/60 text-sm mt-2">
-                    Sistemas confiables de última generación
-                  </p>
-                </div>
-              </div>
+            {/* ── RIGHT: Imagen ── */}
+            <div className="flex items-center justify-center">
+              <Image
+                src="/icons/egmr.png"
+                alt="EGMR Sistemas de Seguridad"
+                width={600}
+                height={460}
+                className="w-full h-auto object-contain"
+                priority
+              />
             </div>
+
           </div>
         </div>
       </section>

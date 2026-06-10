@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
-          <div>
+          {/* <div>
             <div className="font-extrabold text-lg tracking-tight text-slate-900">
               EGMR <span className="text-slate-500">GROUP</span>
             </div>
@@ -19,10 +19,10 @@ export default function Footer() {
             >
               Volver arriba <span className="inline-block">↑</span>
             </a>
-          </div>
+          </div> */}
 
           {/* Links */}
-          <div>
+          {/* <div>
             <div className="text-sm font-semibold text-slate-900">Secciones</div>
             <div className="mt-3 flex flex-col gap-2 text-sm font-semibold text-slate-700">
               <a className="hover:text-black transition" href="#servicios">
@@ -41,10 +41,10 @@ export default function Footer() {
                 Contacto
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* CTA */}
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+          {/* <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
             <div className="text-sm font-semibold text-slate-900">¿Listo para cotizar?</div>
             <p className="text-sm text-slate-600 mt-2">
               Selecciona un servicio y envía tu solicitud por WhatsApp en menos de 1 minuto.
@@ -64,7 +64,7 @@ export default function Footer() {
                 Contacto
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom bar */}

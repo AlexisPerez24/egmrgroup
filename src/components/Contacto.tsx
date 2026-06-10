@@ -124,16 +124,18 @@ export default function Contacto() {
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <a
                     className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 border border-white/30 hover:bg-white hover:text-black transition"
-                    href={`mailto:${email}`}
+                    href={`https://mail.google.com/mail/?view=cm&to=${email}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Enviar correo
                   </a>
 
                   <a
                     className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 bg-white text-black hover:bg-slate-100 transition"
-                    href={`mailto:${email}?subject=${encodeURIComponent(
-                      "Cotización - EGMR GROUP"
-                    )}`}
+                    href={`https://mail.google.com/mail/?view=cm&to=${email}&su=${encodeURIComponent("Servicio - EGMR GROUP")}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Cotizar por correo
                   </a>
