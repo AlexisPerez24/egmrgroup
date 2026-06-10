@@ -535,7 +535,7 @@ export default function Hero() {
 
           {/* Buttons - OPCIÓN 2: LINKS A DIVISIONES */}
           <div className="hero-btns">
-            <Link href="/divisiones/evta" className="hero-btn hero-btn-primary">
+            <Link href="/divisiones/egmr/evta" className="hero-btn hero-btn-primary">
               EVTA
               <svg className="hero-btn-icon" viewBox="0 0 16 16" fill="none">
                 <path
