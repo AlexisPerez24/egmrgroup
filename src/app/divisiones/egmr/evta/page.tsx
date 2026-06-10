@@ -59,7 +59,7 @@ export default function PageEVTA() {
                 className="font-black mb-4 leading-tight"
                 style={{ fontSize: "clamp(48px, 9vw, 80px)" }}
               >
-                EVTA
+                <span style={{ color: "#000000" }}>EVTA</span>
                 <span className="block" style={{ color: "#38bdf8" }}>
                   SOLUCIONES
                 </span>
