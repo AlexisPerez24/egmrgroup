@@ -134,8 +134,8 @@ export default function DivisionEGMR() {
                 src="/icons/egmr.png"
                 alt="EGMR Sistemas de Seguridad"
                 width={600}
-                height={460}
-                className="w-full h-auto object-contain"
+                height={700}
+                className="w-full object-fill"
                 priority
               />
             </div>
