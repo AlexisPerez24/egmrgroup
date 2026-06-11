@@ -150,12 +150,10 @@ export default function Hero() {
         }
         .hero-logo-inner {
           position: absolute;
-          inset: 4px;
-          border-radius: 16px;
-          overflow: hidden;
-          background: rgba(255,255,255,0.07);
-          border: 1px solid rgba(255,255,255,0.12);
-          backdrop-filter: blur(8px);
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         /* ── HEADLINE ── */
@@ -508,8 +506,9 @@ export default function Hero() {
               <Image
                 src="/egmr-logo.png"
                 alt="EGMR GROUP"
-                fill
-                className="object-cover"
+                width={80}
+                height={80}
+                className="object-contain"
                 priority
               />
             </div>
