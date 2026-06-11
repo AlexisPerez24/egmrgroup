@@ -150,10 +150,9 @@ export default function Hero() {
         }
         .hero-logo-inner {
           position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          inset: 4px;
+          border-radius: 18px;
+          overflow: hidden;
         }
 
         /* ── HEADLINE ── */
@@ -506,8 +505,7 @@ export default function Hero() {
               <Image
                 src="/icons/egmr-logo.png"
                 alt="EGMR GROUP"
-                width={80}
-                height={80}
+                fill
                 className="object-contain"
                 priority
               />
