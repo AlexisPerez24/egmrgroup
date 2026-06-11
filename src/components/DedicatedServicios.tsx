@@ -12,14 +12,14 @@ const servicios = [
     resumen: "Alta velocidad, conexión estable 24/7 y soporte especializado para tu empresa.",
     features: ["Velocidad simétrica garantizada", "Sin límite de datos", "SLA garantizado"],
   },
-  {
-    key: "soporte-red",
-    icono: "🔧",
-    titulo: "Soporte de Red",
-    badge: "Empresarial",
-    resumen: "Instalación, configuración y mantenimiento de redes para empresas.",
-    features: ["Cableado estructurado", "WiFi empresarial", "VPN y seguridad"],
-  },
+  // {
+  //   key: "soporte-red",
+  //   icono: "🔧",
+  //   titulo: "Soporte de Red",
+  //   badge: "Empresarial",
+  //   resumen: "Instalación, configuración y mantenimiento de redes para empresas.",
+  //   features: ["Cableado estructurado", "WiFi empresarial", "VPN y seguridad"],
+  // },
 ];
 
 export default function DedicatedServicios() {
