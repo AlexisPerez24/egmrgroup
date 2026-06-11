@@ -504,7 +504,7 @@ export default function Hero() {
             <div className="hero-logo-ring" />
             <div className="hero-logo-inner">
               <Image
-                src="/egmr-logo.png"
+                src="/icons/egmr-logo.png"
                 alt="EGMR GROUP"
                 width={80}
                 height={80}

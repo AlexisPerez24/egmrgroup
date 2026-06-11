@@ -64,7 +64,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3" onClick={close}>
           <Image
-            src="/egmr-logo.png"
+            src="/icons/egmr-logo.png"
             alt="EGMR GROUP logo"
             width={40}
             height={40}
