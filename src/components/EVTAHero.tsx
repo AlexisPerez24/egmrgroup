@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-export default function EGMRHero() {
+export default function EVTAHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function EGMRHero() {
     <section
       className="relative overflow-hidden"
       style={{
-        minHeight: "92vh",
+        minHeight: "80vh",
         background: "linear-gradient(160deg, #0b1622 0%, #0d1f2d 55%, #071318 100%)",
       }}
     >
@@ -80,22 +80,18 @@ export default function EGMRHero() {
 
       {/* Diagonal accent */}
       <div
-        className="absolute top-0 right-0 h-full w-1/2 opacity-25 pointer-events-none"
+        className="absolute top-0 right-0 h-full w-1/2 opacity-20 pointer-events-none"
         style={{
           background:
             "linear-gradient(135deg, transparent 45%, #1f6b86 45%, #0ea5e9 58%, transparent 58%)",
         }}
       />
-
-      {/* Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(14,116,144,0.15) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%)" }} />
 
       <div
         className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex items-center"
-        style={{ minHeight: "92vh" }}
+        style={{ minHeight: "80vh" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full py-20">
 
@@ -104,31 +100,31 @@ export default function EGMRHero() {
             <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur">
               <div className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
               <span className="text-sm font-semibold uppercase tracking-widest">
-                Soluciones de Seguridad
+                Soluciones para tu Oficina y Negocio
               </span>
             </div>
 
             <h1 className="font-black mb-4 leading-tight" style={{ fontSize: "clamp(48px, 9vw, 80px)" }}>
-              SISTEMAS DE
-              <span className="block" style={{ color: "#38bdf8" }}>SEGURIDAD</span>
+              EVTA
+              <span className="block" style={{ color: "#38bdf8" }}>SOLUCIONES</span>
             </h1>
 
             <p className="text-lg font-bold uppercase tracking-widest mb-4" style={{ color: "rgba(186,230,253,0.85)" }}>
-              Protegemos lo que más te importa
+              Equipa tu oficina y negocio
             </p>
 
             <p className="text-base mb-10 leading-relaxed max-w-lg" style={{ color: "rgba(186,230,253,0.65)" }}>
-              Instalación, mantenimiento y soporte de cámaras, videoporteros,
-              control de acceso y grabación. Tecnología confiable para tu negocio o hogar.
+              Venta de equipos de cómputo, papelería y accesorios. Renta de impresoras con
+              mantenimiento incluido. Todo lo que necesitas en un solo lugar.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4">
               <Link
-                href="#servicios"
+                href="#productos"
                 className="px-8 py-4 rounded-xl font-bold text-base transition transform hover:scale-105"
                 style={{ background: "#fff", color: "#071318" }}
               >
-                Nuestros servicios →
+                Ver productos →
               </Link>
               <Link
                 href="#contacto"
@@ -138,32 +134,17 @@ export default function EGMRHero() {
                 Cotizar ahora
               </Link>
             </div>
-
-            <div className="flex gap-10">
-              <div>
-                <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>24/7</div>
-                <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Soporte continuo</p>
-              </div>
-              <div>
-                <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>+100</div>
-                <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Clientes satisfechos</p>
-              </div>
-              <div>
-                <div className="text-3xl font-black" style={{ color: "#38bdf8" }}>2020</div>
-                <p className="text-sm" style={{ color: "rgba(186,230,253,0.55)" }}>Desde Tijuana</p>
-              </div>
-            </div>
           </div>
 
-          {/* RIGHT — imagen con brillo */}
+          {/* RIGHT — imagen con brillo ajustado */}
           <div className="flex items-center justify-center">
             <div
               className="relative w-full"
-              style={{ height: 520, animation: "float 4s ease-in-out infinite" }}
+              style={{ height: 480, animation: "float 4s ease-in-out infinite" }}
             >
               <Image
-                src="/icons/egmr.png"
-                alt="EGMR Sistemas de Seguridad"
+                src="/icons/evta.png"
+                alt="EVTA Soluciones"
                 fill
                 className="object-contain relative z-10"
                 priority
