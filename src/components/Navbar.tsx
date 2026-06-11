@@ -63,15 +63,14 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3" onClick={close}>
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <Image
-              src="/egmr-logo.png"
-              alt="EGMR GROUP logo"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <Image
+            src="/egmr-logo.png"
+            alt="EGMR GROUP logo"
+            width={40}
+            height={40}
+            className="object-contain"
+            priority
+          />
 
           <div className="leading-tight">
             <div className="font-extrabold text-lg tracking-tight text-slate-900">
