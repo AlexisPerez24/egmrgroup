@@ -116,9 +116,9 @@ export default function DedicatedServicios() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="flex justify-center gap-8 flex-wrap max-w-4xl mx-auto">
           {servicios.map((s) => (
-            <Link key={s.key} href={`/divisiones/dedicated-services/${s.key}`} className="group relative">
+            <Link key={s.key} href={`/divisiones/dedicated-services/${s.key}`} className="group relative w-full max-w-sm">
               <div className="h-full rounded-2xl border border-purple-300/30 bg-white/10 backdrop-blur-sm p-8 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:border-purple-300/60 hover:bg-white/15">
                 <div className="mb-8">
                   <div className="w-24 h-24 rounded-2xl flex items-center justify-center border border-purple-200/30 bg-gradient-to-br from-purple-500/30 to-purple-800/20 shadow-lg text-5xl">
