@@ -105,9 +105,19 @@ export default function PageEVTA() {
                 alt="EVTA Soluciones"
                 width={600}
                 height={700}
-                className="w-full object-fill"
+                className="w-full object-contain rounded-3xl"
                 priority
+                style={{
+                  boxShadow: "0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(56,189,248,0.15)",
+                  animation: "float 4s ease-in-out infinite",
+                }}
               />
+              <style>{`
+                @keyframes float {
+                  0%, 100% { transform: translateY(0px); }
+                  50% { transform: translateY(-14px); }
+                }
+              `}</style>
             </div>
           </div>
         </div>

@@ -62,7 +62,7 @@ export default function Navbar() {
       ].join(" ")}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-3" onClick={close}>
+        <a href="/" className="flex items-center gap-3" onClick={close}>
           <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-slate-200 bg-white">
             <Image
               src="/egmr-logo.png"
@@ -105,12 +105,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
+          {/* <a
             href="#cotizacion"
             className="hidden md:inline-flex items-center justify-center rounded-xl font-semibold transition px-4 py-2 bg-[color:var(--egmr-ink)] text-white hover:brightness-110"
           >
             Cotizar
-          </a>
+          </a> */}
 
           {/* Botón móvil */}
           <button

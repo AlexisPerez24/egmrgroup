@@ -135,14 +135,31 @@ export default function DivisionEGMR() {
                 alt="EGMR Sistemas de Seguridad"
                 width={600}
                 height={700}
-                className="w-full object-fill"
+                className="w-full object-contain rounded-3xl"
                 priority
+                style={{
+                  boxShadow: "0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(56,189,248,0.15)",
+                  animation: "float 4s ease-in-out infinite",
+                }}
               />
+              <style>{`
+                @keyframes float {
+                  0%, 100% { transform: translateY(0px); }
+                  50% { transform: translateY(-14px); }
+                }
+              `}</style>
             </div>
 
           </div>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          SERVICIOS PRINCIPALES
+          ════════════════════════════════════════════════════════════ */}
+      <Reveal>
+        <ServiciosCotizacionLimpio />
+      </Reveal>
 
       {/* ════════════════════════════════════════════════════════════
           ¿POR QUÉ ELEGIRNOS?
@@ -181,103 +198,11 @@ export default function DivisionEGMR() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          SERVICIOS PRINCIPALES
+          BENEFICIOS DETALLADOS — comentado
           ════════════════════════════════════════════════════════════ */}
-      <Reveal>
-        <ServiciosCotizacionLimpio />
-      </Reveal>
-
-      {/* ════════════════════════════════════════════════════════════
-          BENEFICIOS DETALLADOS
-          ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-gradient-to-br from-[color:var(--egmr-ink)] to-[color:var(--egmr-navy)] text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-black mb-4">
-              Beneficios de nuestros servicios
-            </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Protección profesional que te da tranquilidad y control total
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">🔐</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Seguridad Total
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Protege tus instalaciones, colaboradores y activos con tecnología
-                  confiable 24/7
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">📊</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Monitoreo en Tiempo Real
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Visualiza desde cualquier lugar y en cualquier momento lo que ocurre
-                  en tu negocio
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">🔔</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Alertas Inteligentes
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Notificaciones inmediatas ante cualquier evento o situación anómala
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">✓</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Tranquilidad y Control
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Toma decisiones informadas con información confiable y acceso remoto
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">⚙</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Instalación Profesional
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Instalación y mantenimiento preventivo y correctivo especializado
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 p-6 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              <div className="text-5xl flex-shrink-0">📞</div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">
-                  Soporte Especializado
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  Equipo técnico disponible para resolver problemas con mayor velocidad
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* <section className="py-24 bg-gradient-to-br from-[color:var(--egmr-ink)] to-[color:var(--egmr-navy)] text-white">
+        ...
+      </section> */}
 
       {/* ════════════════════════════════════════════════════════════
           CONTACTO
