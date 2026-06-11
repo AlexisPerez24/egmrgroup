@@ -175,22 +175,43 @@ export default function DedicatedHero() {
 
           {/* RIGHT */}
           <div className="flex items-center justify-center">
-            <Image
-              src="/icons/internet.png"
-              alt="dEdicaTEd Services - Internet Dedicado"
-              width={400}
-              height={400}
-              className="object-contain"
-              priority
-              style={{
-                filter: "drop-shadow(0 0 60px rgba(168,85,247,0.5)) drop-shadow(0 0 120px rgba(56,189,248,0.2))",
-                animation: "float 4s ease-in-out infinite",
-              }}
-            />
+            <div className="relative" style={{ width: 380, height: 380, animation: "float 4s ease-in-out infinite" }}>
+              {/* Glow orb detrás */}
+              <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+                background: "radial-gradient(circle at 50% 55%, rgba(109,40,217,0.75) 0%, rgba(168,85,247,0.35) 45%, transparent 75%)",
+                filter: "blur(28px)",
+                transform: "scale(1.15)",
+              }} />
+              {/* Halo exterior animado */}
+              <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+                boxShadow: "0 0 60px 20px rgba(168,85,247,0.3), 0 0 120px 40px rgba(109,40,217,0.2)",
+                borderRadius: "50%",
+                animation: "pulse-glow 3s ease-in-out infinite",
+              }} />
+              {/* Imagen */}
+              <Image
+                src="/icons/internet.png"
+                alt="dEdicaTEd Services - Internet Dedicado"
+                fill
+                className="object-contain relative z-10"
+                priority
+                style={{
+                  filter:
+                    "drop-shadow(0 0 30px rgba(168,85,247,0.9)) " +
+                    "drop-shadow(0 0 70px rgba(109,40,217,0.6)) " +
+                    "drop-shadow(0 0 120px rgba(168,85,247,0.3)) " +
+                    "brightness(1.05)",
+                }}
+              />
+            </div>
             <style>{`
               @keyframes float {
                 0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-14px); }
+                50% { transform: translateY(-16px); }
+              }
+              @keyframes pulse-glow {
+                0%, 100% { opacity: 0.7; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.06); }
               }
             `}</style>
           </div>
