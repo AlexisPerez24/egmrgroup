@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../../../components/Navbar";
+import BeneficiosAnimados from "../../../components/BeneficiosAnimados";
 import Reveal from "../../../components/Reveal";
 import Contacto from "../../../components/Contacto";
 import Footer from "../../../components/Footer";
@@ -164,38 +165,7 @@ export default function DivisionEGMR() {
       {/* ════════════════════════════════════════════════════════════
           ¿POR QUÉ ELEGIRNOS?
           ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-black text-[color:var(--egmr-ink)] mb-4">
-              ¿Por qué elegirnos?
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Somos el equipo mejor actualizado en seguridad y telecomunicaciones,
-              transformando a EGMR en el mejor proveedor
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {beneficios.map((benefit, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white hover:shadow-xl transition-all transform hover:-translate-y-1"
-              >
-                <div className="text-5xl font-black text-[color:var(--egmr-teal)] mb-4">
-                  {benefit.numero}
-                </div>
-                <h3 className="text-xl font-bold text-[color:var(--egmr-ink)] mb-2 uppercase tracking-wide">
-                  {benefit.titulo}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {benefit.descripcion}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BeneficiosAnimados beneficios={beneficios} accentColor="var(--egmr-teal)" />
 
       {/* ════════════════════════════════════════════════════════════
           BENEFICIOS DETALLADOS — comentado

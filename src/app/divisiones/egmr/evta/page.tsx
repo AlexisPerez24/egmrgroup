@@ -5,6 +5,14 @@ import Contacto from "../../../../components/Contacto";
 import Footer from "../../../../components/Footer";
 import WhatsappFloat from "../../../../components/WhatsappFloat";
 import EvtaProductos from "../../../../components/EvtaProductos";
+import BeneficiosAnimados from "../../../../components/BeneficiosAnimados";
+
+const beneficiosEvta = [
+  { numero: "01", titulo: "Experiencia", descripcion: "Equipo experto en soluciones para oficina y negocio con años de trayectoria." },
+  { numero: "02", titulo: "Calidad", descripcion: "Equipos y materiales de las mejores marcas del mercado." },
+  { numero: "03", titulo: "Servicio Integral", descripcion: "Desde la venta hasta la entrega e instalación en tu oficina." },
+  { numero: "04", titulo: "Atención Personalizada", descripcion: "Soluciones adaptadas a las necesidades específicas de tu negocio." },
+];
 
 export const metadata = {
   title: "EVTA - Soluciones para tu Oficina y Negocio",
@@ -128,6 +136,7 @@ export default function PageEVTA() {
       {/* ══════════════════════════════════════════
           CONTACTO
           ══════════════════════════════════════════ */}
+      <BeneficiosAnimados beneficios={beneficiosEvta} accentColor="#f97316" />
       <Contacto />
       <Footer />
       <WhatsappFloat />

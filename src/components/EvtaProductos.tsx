@@ -62,7 +62,7 @@ export default function EvtaProductos() {
     if (!ctx) return;
 
     canvas.width = window.innerWidth;
-    canvas.height = canvas.offsetHeight || 600;
+    canvas.height = window.innerHeight;
 
     const particles: {
       x: number; y: number; vx: number; vy: number;

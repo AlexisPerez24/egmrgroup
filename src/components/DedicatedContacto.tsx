@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 
-export default function Contacto() {
+export default function DedicatedContacto() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const whatsappNumber = "526645601401"; // +52 664 560 1401
+  const whatsappNumber = "526645601401";
   const phoneDisplay = "664 560 1401";
   const email = "contacto@egmrgroup.com";
 
@@ -23,9 +23,9 @@ export default function Contacto() {
     }[] = [];
 
     const colors = [
-      "rgba(125,211,252,",
-      "rgba(56,189,248,",
-      "rgba(186,230,253,",
+      "rgba(168,85,247,",
+      "rgba(192,132,252,",
+      "rgba(216,180,254,",
       "rgba(255,255,255,",
     ];
 
@@ -73,7 +73,7 @@ export default function Contacto() {
   }, []);
 
   const whatsappMsg = encodeURIComponent(
-    "Hola, me gustaría solicitar información y una cotización de EGMR GROUP."
+    "Hola, me gustaría solicitar información y una cotización de dEdicaTEd Services."
   );
 
   const [copied, setCopied] = useState<"" | "phone" | "email">("");
@@ -84,7 +84,6 @@ export default function Contacto() {
       setCopied(key);
       window.setTimeout(() => setCopied(""), 1200);
     } catch {
-      // fallback simple
       setCopied(key);
       window.setTimeout(() => setCopied(""), 1200);
     }
@@ -95,7 +94,7 @@ export default function Contacto() {
       id="contacto"
       className="relative py-16 overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #0b1622 0%, #0d1f2d 55%, #071318 100%)",
+        background: "linear-gradient(160deg, #0d0a1a 0%, #1a0a2e 55%, #0d0a1a 100%)",
       }}
     >
       <canvas
@@ -105,48 +104,52 @@ export default function Contacto() {
       />
       <div className="relative max-w-6xl mx-auto px-6">
         <div
-          className="relative overflow-hidden rounded-[28px] p-10 text-white border border-white/10"
+          className="relative overflow-hidden rounded-[28px] p-10 text-white border"
           style={{
+            borderColor: "rgba(168,85,247,0.25)",
             background:
-              "radial-gradient(900px 420px at 20% 20%, rgba(123,183,216,.35), transparent 60%)," +
-              "radial-gradient(800px 420px at 80% 30%, rgba(31,107,134,.28), transparent 60%)," +
-              "linear-gradient(135deg, var(--egmr-ink), var(--egmr-navy))",
+              "radial-gradient(900px 420px at 20% 20%, rgba(109,40,217,.25), transparent 60%)," +
+              "radial-gradient(800px 420px at 80% 30%, rgba(168,85,247,.2), transparent 60%)," +
+              "linear-gradient(135deg, #1a0a2e, #0d0a1a)",
           }}
         >
-          {/* decor */}
-          <div className="pointer-events-none absolute -top-24 -right-24 w-[360px] h-[360px] rounded-full bg-white/5 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-[color:var(--egmr-sky)]/10 blur-3xl" />
+          {/* Decor orbs */}
+          <div className="pointer-events-none absolute -top-24 -right-24 w-[360px] h-[360px] rounded-full blur-3xl"
+            style={{ background: "rgba(168,85,247,0.08)" }} />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full blur-3xl"
+            style={{ background: "rgba(109,40,217,0.1)" }} />
 
           <div className="relative">
-            <h2 className="text-3xl font-extrabold tracking-tight mb-2">
-              Contáctanos
-            </h2>
-            <p className="text-white/80 mb-8 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight mb-2">Contáctanos</h2>
+            <p className="mb-8 max-w-2xl" style={{ color: "rgba(216,180,254,0.75)" }}>
               WhatsApp y correo disponibles para atención y cotizaciones. Respuesta rápida y asesoría personalizada.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* WhatsApp */}
-              <div className="group rounded-3xl p-6 border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <div
+                className="group rounded-3xl p-6 border transition hover:bg-white/10"
+                style={{ borderColor: "rgba(168,85,247,0.2)", background: "rgba(168,85,247,0.08)" }}
+              >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold text-white/80">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-2xl bg-white/10 border border-white/10">
+                    <div className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: "rgba(216,180,254,0.85)" }}>
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-2xl border"
+                        style={{ background: "rgba(168,85,247,0.15)", borderColor: "rgba(168,85,247,0.3)" }}>
                         💬
                       </span>
                       WhatsApp
                     </div>
-
-                    <h3 className="text-xl font-semibold mt-3">{phoneDisplay}</h3>
-                    <p className="text-white/70 mt-1 text-sm">
+                    <h3 className="text-xl font-semibold mt-3 text-white">{phoneDisplay}</h3>
+                    <p className="mt-1 text-sm" style={{ color: "rgba(216,180,254,0.65)" }}>
                       Atención rápida para cotizaciones y soporte.
                     </p>
                   </div>
-
                   <button
                     type="button"
                     onClick={() => copy(phoneDisplay, "phone")}
-                    className="shrink-0 rounded-xl px-3 py-2 text-sm font-semibold border border-white/20 hover:bg-white/10 transition"
+                    className="shrink-0 rounded-xl px-3 py-2 text-sm font-semibold border transition hover:bg-white/10"
+                    style={{ borderColor: "rgba(168,85,247,0.35)", color: "rgba(216,180,254,0.85)" }}
                   >
                     {copied === "phone" ? "Copiado ✓" : "Copiar"}
                   </button>
@@ -154,16 +157,17 @@ export default function Contacto() {
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <a
-                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 bg-white text-black hover:bg-slate-100 transition"
+                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 text-white transition hover:brightness-110"
+                    style={{ background: "#a855f7" }}
                     href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`}
                     target="_blank"
                     rel="noreferrer"
                   >
                     Enviar mensaje
                   </a>
-
                   <a
-                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 border border-white/30 hover:bg-white hover:text-black transition"
+                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 border transition hover:bg-white/10 text-white"
+                    style={{ borderColor: "rgba(168,85,247,0.4)" }}
                     href={`tel:+${whatsappNumber}`}
                   >
                     Llamar
@@ -172,35 +176,39 @@ export default function Contacto() {
               </div>
 
               {/* Correo */}
-              <div className="group rounded-3xl p-6 border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <div
+                className="group rounded-3xl p-6 border transition hover:bg-white/10"
+                style={{ borderColor: "rgba(168,85,247,0.2)", background: "rgba(168,85,247,0.08)" }}
+              >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold text-white/80">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-2xl bg-white/10 border border-white/10">
+                    <div className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: "rgba(216,180,254,0.85)" }}>
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-2xl border"
+                        style={{ background: "rgba(168,85,247,0.15)", borderColor: "rgba(168,85,247,0.3)" }}>
                         ✉️
                       </span>
                       Correo
                     </div>
-
-                    <h3 className="text-xl font-semibold mt-3 break-all">{email}</h3>
-                    <p className="text-white/70 mt-1 text-sm">
+                    <h3 className="text-xl font-semibold mt-3 break-all text-white">{email}</h3>
+                    <p className="mt-1 text-sm" style={{ color: "rgba(216,180,254,0.65)" }}>
                       Ideal para enviar detalles técnicos o archivos.
                     </p>
                   </div>
-
                   <button
                     type="button"
                     onClick={() => copy(email, "email")}
-                    className="shrink-0 rounded-xl px-3 py-2 text-sm font-semibold border border-white/20 hover:bg-white/10 transition"
+                    className="shrink-0 rounded-xl px-3 py-2 text-sm font-semibold border transition hover:bg-white/10"
+                    style={{ borderColor: "rgba(168,85,247,0.35)", color: "rgba(216,180,254,0.85)" }}
                   >
                     {copied === "email" ? "Copiado ✓" : "Copiar"}
                   </button>
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6">
                   <a
-                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 bg-white text-black hover:bg-slate-100 transition"
-                    href={`https://mail.google.com/mail/?view=cm&to=${email}&su=${encodeURIComponent("Servicio - EGMR GROUP")}`}
+                    className="inline-flex items-center justify-center rounded-xl font-semibold px-6 py-3 text-white transition hover:brightness-110"
+                    style={{ background: "#a855f7" }}
+                    href={`https://mail.google.com/mail/?view=cm&to=${email}&su=${encodeURIComponent("Servicio - dEdicaTEd Services")}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -210,8 +218,8 @@ export default function Contacto() {
               </div>
             </div>
 
-            <div className="mt-10 text-xs text-white/60">
-              EGMR GROUP • Soluciones Tecnológicas
+            <div className="mt-10 text-xs" style={{ color: "rgba(216,180,254,0.45)" }}>
+              EGMR GROUP • dEdicaTEd Services
             </div>
           </div>
         </div>
