@@ -499,7 +499,7 @@ export default function Hero() {
           </div>
 
           {/* Logo */}
-          <div className="hero-logo-wrap" style={{ marginTop: 36 }}>
+          <div className="hero-logo-wrap" style={{ marginTop: 20 }}>
             <div className="hero-logo-ring" />
             <div className="hero-logo-inner">
               <Image
@@ -513,26 +513,26 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="hero-h1" style={{ marginTop: 24 }}>
+          <h1 className="hero-h1" style={{ marginTop: 14 }}>
             EGMR
             <span className="hero-h1-accent"> GROUP</span>
           </h1>
 
           {/* Thin line */}
-          <div className="hero-line" style={{ marginTop: 20 }} />
+          <div className="hero-line" style={{ marginTop: 10 }} />
 
           {/* Description */}
-          <p className="hero-desc" style={{ marginTop: 20 }}>
+          <p className="hero-desc" style={{ marginTop: 10 }}>
             Soluciones tecnológicas integrales para empresas: Internet, videovigilancia,
             control de acceso y soporte técnico.
           </p>
 
           {/* Logos flotantes — divisiones */}
-          <div style={{ marginTop: 40, display: "flex", gap: 40, alignItems: "flex-end", justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ marginTop: 20, display: "flex", gap: 32, alignItems: "flex-end", justifyContent: "center", flexWrap: "wrap" }}>
 
             {/* EVTA */}
-            <Link href="/divisiones/egmr/evta" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatA 4s ease-in-out infinite" }}>
-              <div style={{ width: 110, height: 110, position: "relative" }}>
+            <Link href="/divisiones/egmr/evta" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatA 4s ease-in-out infinite" }}>
+              <div style={{ width: 88, height: 88, position: "relative" }}>
                 <Image
                   src="/icons/principal-evta.png"
                   alt="EVTA"
@@ -545,8 +545,8 @@ export default function Hero() {
             </Link>
 
             {/* dEdicaTEd Services */}
-            <Link href="/divisiones/dedicated-services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatB 4.5s ease-in-out infinite" }}>
-              <div style={{ width: 130, height: 130, position: "relative" }}>
+            <Link href="/divisiones/dedicated-services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatB 4.5s ease-in-out infinite" }}>
+              <div style={{ width: 108, height: 108, position: "relative" }}>
                 <Image
                   src="/icons/logo-dedicated.png"
                   alt="dEdicaTEd Services"
@@ -559,8 +559,8 @@ export default function Hero() {
             </Link>
 
             {/* EGMR */}
-            <Link href="/divisiones/egmr" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatC 5s ease-in-out infinite" }}>
-              <div style={{ width: 110, height: 110, position: "relative" }}>
+            <Link href="/divisiones/egmr" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatC 5s ease-in-out infinite" }}>
+              <div style={{ width: 88, height: 88, position: "relative" }}>
                 <Image
                   src="/icons/egmrPrincipal.png"
                   alt="EGMR"
@@ -589,7 +589,7 @@ export default function Hero() {
           `}</style>
 
           {/* Tags */}
-          <div className="hero-tags" style={{ marginTop: 20 }}>
+          <div className="hero-tags" style={{ marginTop: 14 }}>
             <span className="hero-tag">⚡ Respuesta rápida</span>
             <span className="hero-tag">🔧 Instalación y soporte</span>
             <span className="hero-tag">💬 Atención por WhatsApp</span>
