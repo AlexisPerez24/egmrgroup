@@ -465,7 +465,7 @@ export default function Hero() {
 
       <section
         id="top"
-        className="hero-section relative overflow-hidden h-screen flex flex-col justify-center items-center text-white"
+        className="hero-section relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-white"
         style={{
           background: "linear-gradient(160deg, #0b1622 0%, #0d1f2d 55%, #071318 100%)",
         }}
@@ -489,7 +489,7 @@ export default function Hero() {
         <div className="hero-vert-text">Tijuana, B.C. · México</div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center text-center gap-0">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-0">
           {/* Badge */}
           <div className="hero-badge">
             <span className="hero-badge-dot" />
