@@ -190,7 +190,7 @@ export default function DedicatedHero() {
               }} />
               {/* Imagen */}
               <Image
-                src="/icons/internet.png"
+                src="/icons/interLogo.png"
                 alt="dEdicaTEd Services - Internet Dedicado"
                 fill
                 className="object-contain relative z-10"

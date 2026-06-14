@@ -527,48 +527,66 @@ export default function Hero() {
             control de acceso y soporte técnico.
           </p>
 
-          {/* Divider */}
-          <div className="hero-divider" />
+          {/* Logos flotantes — divisiones */}
+          <div style={{ marginTop: 40, display: "flex", gap: 40, alignItems: "flex-end", justifyContent: "center", flexWrap: "wrap" }}>
 
-          {/* Buttons - OPCIÓN 2: LINKS A DIVISIONES */}
-          <div className="hero-btns">
-            <Link href="/divisiones/egmr/evta" className="hero-btn hero-btn-primary">
-              EVTA
-              <svg className="hero-btn-icon" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            {/* EVTA */}
+            <Link href="/divisiones/egmr/evta" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatA 4s ease-in-out infinite" }}>
+              <div style={{ width: 110, height: 110, position: "relative" }}>
+                <Image
+                  src="/icons/principal-evta.png"
+                  alt="EVTA"
+                  fill
+                  className="object-contain"
+                  style={{ filter: "drop-shadow(0 0 14px rgba(249,115,22,0.8)) drop-shadow(0 0 35px rgba(249,115,22,0.4))" }}
                 />
-              </svg>
+              </div>
+              <span style={{ color: "rgba(249,115,22,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>EVTA</span>
             </Link>
-            <Link href="/divisiones/dedicated-services" className="hero-btn">
-              Dedicated Services
-              <svg className="hero-btn-icon" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+
+            {/* dEdicaTEd Services */}
+            <Link href="/divisiones/dedicated-services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatB 4.5s ease-in-out infinite" }}>
+              <div style={{ width: 130, height: 130, position: "relative" }}>
+                <Image
+                  src="/icons/logo-dedicated.png"
+                  alt="dEdicaTEd Services"
+                  fill
+                  className="object-contain"
+                  style={{ filter: "drop-shadow(0 0 14px rgba(168,85,247,0.9)) drop-shadow(0 0 35px rgba(168,85,247,0.45))" }}
                 />
-              </svg>
+              </div>
+              <span style={{ color: "rgba(168,85,247,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>Dedicated</span>
             </Link>
-            <Link href="/divisiones/egmr" className="hero-btn">
-              EGMR
-              <svg className="hero-btn-icon" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+
+            {/* EGMR */}
+            <Link href="/divisiones/egmr" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textDecoration: "none", animation: "floatC 5s ease-in-out infinite" }}>
+              <div style={{ width: 110, height: 110, position: "relative" }}>
+                <Image
+                  src="/icons/egmrPrincipal.png"
+                  alt="EGMR"
+                  fill
+                  className="object-contain"
+                  style={{ filter: "drop-shadow(0 0 14px rgba(56,189,248,0.85)) drop-shadow(0 0 35px rgba(56,189,248,0.4))" }}
                 />
-              </svg>
+              </div>
+              <span style={{ color: "rgba(56,189,248,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>EGMR</span>
             </Link>
+
           </div>
+          <style>{`
+            @keyframes floatA {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+            }
+            @keyframes floatB {
+              0%, 100% { transform: translateY(-5px); }
+              50% { transform: translateY(8px); }
+            }
+            @keyframes floatC {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-12px); }
+            }
+          `}</style>
 
           {/* Tags */}
           <div className="hero-tags" style={{ marginTop: 20 }}>
@@ -578,11 +596,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div className="hero-scroll">
+        {/* Scroll hint — comentado */}
+        {/* <div className="hero-scroll">
           <span className="hero-scroll-text">Scroll</span>
           <div className="hero-scroll-bar" />
-        </div>
+        </div> */}
       </section>
     </>
   );
