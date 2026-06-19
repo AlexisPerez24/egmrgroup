@@ -41,6 +41,7 @@ export default function PageEVTA() {
         pdfPath="/catalogos/evta.pdf"
         color="#f97316"
         colorGlow="rgba(249,115,22,"
+        theme="light"
       />
 
       <Contacto />
