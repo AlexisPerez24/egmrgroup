@@ -28,11 +28,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Solo se permiten archivos PDF" }, { status: 400 });
   }
 
-  const blob = await put(`catalogos/${division}.pdf`, file, {
-    access: "public",
-    addRandomSuffix: false,
-    contentType: "application/pdf",
-  });
-
-  return NextResponse.json({ url: blob.url });
+  try {
+    const blob = await put(`catalogos/${division}.pdf`, file, {
+      access: "public",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      contentType: "application/pdf",
+    });
+    return NextResponse.json({ url: blob.url });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Error al subir el archivo";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }
