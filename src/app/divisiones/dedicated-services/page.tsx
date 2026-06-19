@@ -5,6 +5,7 @@ import DedicatedHero from "../../../components/DedicatedHero";
 import DedicatedServicios from "../../../components/DedicatedServicios";
 import DedicatedBeneficios from "../../../components/DedicatedBeneficios";
 import DedicatedContacto from "../../../components/DedicatedContacto";
+import CatalogoSection from "../../../components/CatalogoSection";
 
 export const metadata = {
   title: "dEdicaTEd Services - Internet Dedicado Empresarial",
@@ -29,6 +30,14 @@ export default function DedicatedServicesPage() {
           ¿POR QUÉ ELEGIRNOS?
           ════════════════════════════════════════════════════════════ */}
       <DedicatedBeneficios />
+
+      <CatalogoSection
+        empresa="dEdicaTEd Services"
+        descripcion="Consulta nuestros planes y servicios de internet dedicado empresarial."
+        pdfPath="/catalogos/dedicated.pdf"
+        color="#a855f7"
+        colorGlow="rgba(168,85,247,"
+      />
 
       {/* ════════════════════════════════════════════════════════════
           CONTACTO

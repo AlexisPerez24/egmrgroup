@@ -5,6 +5,7 @@ import WhatsappFloat from "../../../../components/WhatsappFloat";
 import EVTAHero from "../../../../components/EVTAHero";
 import EvtaProductos from "../../../../components/EvtaProductos";
 import BeneficiosAnimados from "../../../../components/BeneficiosAnimados";
+import CatalogoSection from "../../../../components/CatalogoSection";
 
 const beneficiosEvta = [
   { numero: "01", titulo: "Experiencia", descripcion: "Equipo experto en soluciones para oficina y negocio con años de trayectoria." },
@@ -33,6 +34,15 @@ export default function PageEVTA() {
           CONTACTO
           ══════════════════════════════════════════ */}
       <BeneficiosAnimados beneficios={beneficiosEvta} accentColor="#f97316" />
+
+      <CatalogoSection
+        empresa="EVTA"
+        descripcion="Consulta nuestro catálogo de equipos de cómputo, papelería, accesorios, consumibles e impresoras."
+        pdfPath="/catalogos/evta.pdf"
+        color="#f97316"
+        colorGlow="rgba(249,115,22,"
+      />
+
       <Contacto />
       <Footer />
       <WhatsappFloat />

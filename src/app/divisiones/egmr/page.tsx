@@ -6,6 +6,7 @@ import Contacto from "../../../components/Contacto";
 import Footer from "../../../components/Footer";
 import WhatsappFloat from "../../../components/WhatsappFloat";
 import ServiciosCotizacionLimpio from "../../../components/ServiciosCotizacion";
+import CatalogoSection from "../../../components/CatalogoSection";
 
 export const metadata = {
   title: "EGMR - Sistemas de Seguridad",
@@ -55,6 +56,14 @@ export default function DivisionEGMR() {
           ¿POR QUÉ ELEGIRNOS?
           ════════════════════════════════════════════════════════════ */}
       <BeneficiosAnimados beneficios={beneficios} accentColor="var(--egmr-teal)" />
+
+      <CatalogoSection
+        empresa="EGMR"
+        descripcion="Consulta nuestro catálogo completo de sistemas de seguridad, cámaras, videoporteros, control de acceso y más."
+        pdfPath="/catalogos/egmr.pdf"
+        color="#38bdf8"
+        colorGlow="rgba(56,189,248,"
+      />
 
       {/* ════════════════════════════════════════════════════════════
           BENEFICIOS DETALLADOS — comentado
