@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { upload as blobUpload } from "@vercel/blob/client";
+import { put as blobPut } from "@vercel/blob/client";
 
 const DIVISIONS = [
   {
@@ -72,14 +72,31 @@ export default function AdminPage() {
       setStatus(division, { type: "error", msg: "Selecciona un archivo PDF primero." });
       return;
     }
-    setStatus(division, { type: "loading", msg: "Subiendo catálogo…" });
+    setStatus(division, { type: "loading", msg: "Obteniendo permiso de subida…" });
 
     try {
-      await blobUpload(`catalogos/${division}.pdf`, file, {
-        access: "public",
-        handleUploadUrl: "/api/admin/upload",
-        clientPayload: password,
+      // Paso 1: obtener client token del servidor
+      const tokenRes = await fetch("/api/admin/upload", {
+        method: "POST",
+        headers: {
+          "x-admin-password": password,
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ division }),
       });
+      const tokenData = await tokenRes.json();
+      if (!tokenRes.ok) {
+        setStatus(division, { type: "error", msg: tokenData.error ?? "Error obteniendo permiso" });
+        return;
+      }
+
+      // Paso 2: subir directo a Vercel Blob con el token
+      setStatus(division, { type: "loading", msg: "Subiendo catálogo…" });
+      await blobPut(`catalogos/${division}.pdf`, file, {
+        access: "public",
+        token: tokenData.clientToken,
+      });
+
       setStatus(division, { type: "ok", msg: "¡Catálogo actualizado correctamente!" });
       if (input) input.value = "";
     } catch (err) {
