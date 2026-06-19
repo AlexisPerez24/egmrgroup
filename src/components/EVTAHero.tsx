@@ -143,7 +143,7 @@ export default function EVTAHero() {
               style={{ height: 480, animation: "float 4s ease-in-out infinite" }}
             >
               <Image
-                src="/icons/evta.png"
+                src="/icons/principal-evta.png"
                 alt="EVTA Soluciones"
                 fill
                 className="object-contain relative z-10"

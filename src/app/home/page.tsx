@@ -5,10 +5,47 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
+  const divisions = [
+    {
+      key: "evta",
+      href: "/divisiones/egmr/evta",
+      logo: "/icons/principal-evta.png",
+      label: "EVTA",
+      color: "#f97316",
+      glow: "rgba(249,115,22,",
+      animation: "floatA 4s ease-in-out infinite",
+      size: 88,
+      desc: "División de oficina: venta de equipos de cómputo, papelería, accesorios, consumibles y renta de impresoras para tu negocio.",
+    },
+    {
+      key: "dedicated",
+      href: "/divisiones/dedicated-services",
+      logo: "/icons/logo-dedicated.png",
+      label: "Dedicated",
+      color: "#a855f7",
+      glow: "rgba(168,85,247,",
+      animation: "floatB 4.5s ease-in-out infinite",
+      size: 108,
+      desc: "Internet dedicado empresarial: conexión simétrica de alta velocidad, estable 24/7, con soporte técnico especializado.",
+    },
+    {
+      key: "egmr",
+      href: "/divisiones/egmr",
+      logo: "/icons/egmrPrincipal.png",
+      label: "EGMR",
+      color: "#38bdf8",
+      glow: "rgba(56,189,248,",
+      animation: "floatC 5s ease-in-out infinite",
+      size: 88,
+      desc: "División de seguridad: cámaras, videoporteros, control de acceso, instalación, mantenimiento y soporte técnico.",
+    },
+  ];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -529,49 +566,111 @@ export default function Hero() {
 
           {/* Logos flotantes — divisiones */}
           <div style={{ marginTop: 20, display: "flex", gap: 32, alignItems: "flex-end", justifyContent: "center", flexWrap: "wrap" }}>
+            {divisions.map((d) => (
+              <div
+                key={d.key}
+                style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, cursor: "pointer" }}
+                onMouseEnter={() => setActiveCard(d.key)}
+                onMouseLeave={() => setActiveCard(null)}
+                onClick={() => setActiveCard(activeCard === d.key ? null : d.key)}
+              >
+                {/* Tarjeta de descripción */}
+                {activeCard === d.key && (
+                  <div style={{
+                    position: "absolute",
+                    bottom: "calc(100% + 16px)",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: 220,
+                    background: "rgba(6,8,18,0.97)",
+                    border: `1px solid ${d.color}55`,
+                    borderRadius: 16,
+                    padding: "16px",
+                    backdropFilter: "blur(24px)",
+                    boxShadow: `0 16px 48px rgba(0,0,0,0.65), 0 0 28px ${d.color}22`,
+                    zIndex: 100,
+                    animation: "popIn 0.2s cubic-bezier(.22,1,.36,1)",
+                    pointerEvents: "auto",
+                  }}>
+                    <div style={{ width: 28, height: 3, borderRadius: 99, background: d.color, marginBottom: 10 }} />
+                    <div style={{ fontSize: 10, fontWeight: 900, letterSpacing: "0.2em", textTransform: "uppercase", color: d.color, marginBottom: 8 }}>
+                      {d.label}
+                    </div>
+                    <p style={{ color: "rgba(210,220,245,0.82)", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+                      {d.desc}
+                    </p>
+                    <Link
+                      href={d.href}
+                      onClick={(e) => e.stopPropagation()}
+                      style={{
+                        display: "block",
+                        marginTop: 12,
+                        textAlign: "center",
+                        padding: "9px 0",
+                        borderRadius: 10,
+                        background: d.color,
+                        color: "#fff",
+                        fontSize: 11,
+                        fontWeight: 800,
+                        letterSpacing: "0.15em",
+                        textTransform: "uppercase",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Entrar →
+                    </Link>
+                    {/* Flecha apuntando hacia abajo */}
+                    <div style={{
+                      position: "absolute",
+                      bottom: -7,
+                      left: "50%",
+                      transform: "translateX(-50%) rotate(45deg)",
+                      width: 12,
+                      height: 12,
+                      background: "rgba(6,8,18,0.97)",
+                      borderRight: `1px solid ${d.color}55`,
+                      borderBottom: `1px solid ${d.color}55`,
+                    }} />
+                  </div>
+                )}
 
-            {/* EVTA */}
-            <Link href="/divisiones/egmr/evta" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatA 4s ease-in-out infinite" }}>
-              <div style={{ width: 88, height: 88, position: "relative" }}>
-                <Image
-                  src="/icons/principal-evta.png"
-                  alt="EVTA"
-                  fill
-                  className="object-contain"
-                  style={{ filter: "drop-shadow(0 0 14px rgba(249,115,22,0.8)) drop-shadow(0 0 35px rgba(249,115,22,0.4))" }}
-                />
+                {/* Logo */}
+                <div style={{
+                  width: d.size,
+                  height: d.size,
+                  position: "relative",
+                  animation: activeCard === d.key ? "none" : d.animation,
+                  transform: activeCard === d.key ? "scale(1.1)" : "scale(1)",
+                  transition: "transform 0.3s ease",
+                }}>
+                  <Image
+                    src={d.logo}
+                    alt={d.label}
+                    fill
+                    className="object-contain"
+                    style={{
+                      filter: activeCard === d.key
+                        ? `drop-shadow(0 0 22px ${d.glow}1.0)) drop-shadow(0 0 55px ${d.glow}0.6))`
+                        : `drop-shadow(0 0 14px ${d.glow}0.8)) drop-shadow(0 0 35px ${d.glow}0.4))`,
+                      transition: "filter 0.3s ease",
+                    }}
+                  />
+                </div>
+
+                {/* Label */}
+                <span style={{
+                  color: d.color,
+                  fontSize: 11,
+                  fontWeight: 800,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  opacity: activeCard === d.key ? 0.6 : 1,
+                  transition: "opacity 0.3s",
+                }}>
+                  {d.label}
+                </span>
               </div>
-              <span style={{ color: "rgba(249,115,22,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>EVTA</span>
-            </Link>
-
-            {/* dEdicaTEd Services */}
-            <Link href="/divisiones/dedicated-services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatB 4.5s ease-in-out infinite" }}>
-              <div style={{ width: 108, height: 108, position: "relative" }}>
-                <Image
-                  src="/icons/logo-dedicated.png"
-                  alt="dEdicaTEd Services"
-                  fill
-                  className="object-contain"
-                  style={{ filter: "drop-shadow(0 0 14px rgba(168,85,247,0.9)) drop-shadow(0 0 35px rgba(168,85,247,0.45))" }}
-                />
-              </div>
-              <span style={{ color: "rgba(168,85,247,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>Dedicated</span>
-            </Link>
-
-            {/* EGMR */}
-            <Link href="/divisiones/egmr" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textDecoration: "none", animation: "floatC 5s ease-in-out infinite" }}>
-              <div style={{ width: 88, height: 88, position: "relative" }}>
-                <Image
-                  src="/icons/egmrPrincipal.png"
-                  alt="EGMR"
-                  fill
-                  className="object-contain"
-                  style={{ filter: "drop-shadow(0 0 14px rgba(56,189,248,0.85)) drop-shadow(0 0 35px rgba(56,189,248,0.4))" }}
-                />
-              </div>
-              <span style={{ color: "rgba(56,189,248,0.9)", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase" }}>EGMR</span>
-            </Link>
-
+            ))}
           </div>
           <style>{`
             @keyframes floatA {
@@ -585,6 +684,16 @@ export default function Hero() {
             @keyframes floatC {
               0%, 100% { transform: translateY(0px); }
               50% { transform: translateY(-12px); }
+            }
+            @keyframes popIn {
+              from {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.9) translateY(6px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(-50%) scale(1) translateY(0);
+              }
             }
           `}</style>
 

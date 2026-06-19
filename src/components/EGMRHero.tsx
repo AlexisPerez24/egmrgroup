@@ -162,7 +162,7 @@ export default function EGMRHero() {
               style={{ height: 520, animation: "float 4s ease-in-out infinite" }}
             >
               <Image
-                src="/icons/egmr.png"
+                src="/icons/egmrPrincipal.png"
                 alt="EGMR Sistemas de Seguridad"
                 fill
                 className="object-contain relative z-10"
