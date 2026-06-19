@@ -29,7 +29,7 @@ export default function DedicatedServicesPage() {
         colorGlow="rgba(168,85,247,"
       />
       <Contacto color="#a855f7" />
-      <Footer />
+      <Footer color="#a855f7" />
       <WhatsappFloat />
     </DedicatedBackground>
   );

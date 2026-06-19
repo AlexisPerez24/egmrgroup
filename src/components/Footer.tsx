@@ -1,6 +1,20 @@
 
-export default function Footer() {
+interface FooterProps {
+  color?: string;
+}
+
+function hexToRgb(hex: string) {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  return `${r},${g},${b}`;
+}
+
+export default function Footer({ color }: FooterProps) {
   const year = new Date().getFullYear();
+  const accent = color ?? "#38bdf8";
+  const rgb = hexToRgb(accent);
 
   return (
     <>
@@ -10,7 +24,7 @@ export default function Footer() {
         .footer-root {
           position: relative;
           overflow: hidden;
-          background: linear-gradient(160deg, #04060e 0%, #070c17 60%, #04060e 100%);
+          ${color ? "" : "background: linear-gradient(160deg, #04060e 0%, #070c17 60%, #04060e 100%);"}
           font-family: 'DM Sans', sans-serif;
         }
 
@@ -19,8 +33,8 @@ export default function Footer() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
+            linear-gradient(rgba(${rgb},0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(${rgb},0.03) 1px, transparent 1px);
           background-size: 60px 60px;
           mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, black 10%, transparent 80%);
           pointer-events: none;
@@ -34,7 +48,7 @@ export default function Footer() {
           transform: translateX(-50%);
           width: 700px;
           height: 280px;
-          background: radial-gradient(ellipse at 50% 0%, rgba(56,189,248,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse at 50% 0%, rgba(${rgb},0.07) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -44,9 +58,9 @@ export default function Footer() {
           background: linear-gradient(
             90deg,
             transparent 0%,
-            rgba(56,189,248,0.15) 15%,
-            rgba(56,189,248,0.45) 50%,
-            rgba(56,189,248,0.15) 85%,
+            rgba(${rgb},0.15) 15%,
+            rgba(${rgb},0.45) 50%,
+            rgba(${rgb},0.15) 85%,
             transparent 100%
           );
         }
@@ -56,12 +70,12 @@ export default function Footer() {
           position: absolute;
           inset: -3px;
           border-radius: 14px;
-          border: 1px solid rgba(125,211,252,0.2);
+          border: 1px solid rgba(${rgb},0.2);
           background: conic-gradient(
             from 180deg,
-            rgba(56,189,248,0.35),
+            rgba(${rgb},0.35),
             transparent 40%,
-            rgba(56,189,248,0.3) 70%,
+            rgba(${rgb},0.3) 70%,
             transparent
           );
           animation: footer-spin 12s linear infinite;
@@ -77,7 +91,7 @@ export default function Footer() {
           font-weight: 700;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #38bdf8;
+          color: ${accent};
           margin-bottom: 20px;
           display: flex;
           align-items: center;
@@ -87,21 +101,21 @@ export default function Footer() {
           content: '';
           flex: 1;
           height: 1px;
-          background: linear-gradient(90deg, rgba(56,189,248,0.3), transparent);
+          background: linear-gradient(90deg, rgba(${rgb},0.3), transparent);
           border-radius: 99px;
         }
 
         /* Nav links */
         .footer-link {
           font-size: 13px;
-          color: rgba(186,230,253,0.5);
+          color: rgba(${rgb},0.55);
           text-decoration: none;
           transition: color 0.25s, padding-left 0.25s;
           display: block;
           padding: 3px 0;
         }
         .footer-link:hover {
-          color: rgba(186,230,253,0.95);
+          color: rgba(${rgb},0.95);
           padding-left: 6px;
         }
 
@@ -116,8 +130,8 @@ export default function Footer() {
           width: 28px;
           height: 28px;
           border-radius: 8px;
-          background: rgba(56,189,248,0.08);
-          border: 1px solid rgba(56,189,248,0.15);
+          background: rgba(${rgb},0.08);
+          border: 1px solid rgba(${rgb},0.15);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -126,7 +140,7 @@ export default function Footer() {
         }
         .footer-contact-text {
           font-size: 12.5px;
-          color: rgba(186,230,253,0.5);
+          color: rgba(${rgb},0.55);
           line-height: 1.6;
           padding-top: 4px;
         }
@@ -138,9 +152,9 @@ export default function Footer() {
           gap: 8px;
           padding: 9px 18px;
           border-radius: 10px;
-          border: 1px solid rgba(56,189,248,0.22);
-          background: rgba(56,189,248,0.05);
-          color: rgba(125,211,252,0.75);
+          border: 1px solid rgba(${rgb},0.22);
+          background: rgba(${rgb},0.05);
+          color: rgba(${rgb},0.75);
           font-family: 'Space Mono', monospace;
           font-size: 10px;
           letter-spacing: 0.15em;
@@ -149,15 +163,15 @@ export default function Footer() {
           transition: background 0.25s, box-shadow 0.25s, color 0.25s, border-color 0.25s;
         }
         .footer-top-btn:hover {
-          background: rgba(56,189,248,0.12);
-          border-color: rgba(56,189,248,0.4);
-          box-shadow: 0 0 16px rgba(56,189,248,0.18);
-          color: #bae6fd;
+          background: rgba(${rgb},0.12);
+          border-color: rgba(${rgb},0.4);
+          box-shadow: 0 0 16px rgba(${rgb},0.18);
+          color: ${accent};
         }
 
         /* Bottom bar */
         .footer-bottom {
-          border-top: 1px solid rgba(56,189,248,0.08);
+          border-top: 1px solid rgba(${rgb},0.08);
           padding: 20px 0;
           display: flex;
           align-items: center;
@@ -169,7 +183,7 @@ export default function Footer() {
           font-family: 'Space Mono', monospace;
           font-size: 10px;
           letter-spacing: 0.12em;
-          color: rgba(125,211,252,0.28);
+          color: rgba(${rgb},0.28);
         }
 
         /* División badge */
@@ -179,19 +193,19 @@ export default function Footer() {
           gap: 6px;
           padding: 2px 10px 2px 6px;
           border-radius: 99px;
-          border: 1px solid rgba(56,189,248,0.15);
-          background: rgba(56,189,248,0.04);
+          border: 1px solid rgba(${rgb},0.15);
+          background: rgba(${rgb},0.04);
           font-size: 12px;
-          color: rgba(186,230,253,0.45);
+          color: rgba(${rgb},0.45);
           text-decoration: none;
           transition: background 0.2s, color 0.2s, border-color 0.2s;
           margin-bottom: 8px;
           font-weight: 500;
         }
         .footer-div-badge:hover {
-          background: rgba(56,189,248,0.1);
-          border-color: rgba(56,189,248,0.3);
-          color: rgba(186,230,253,0.9);
+          background: rgba(${rgb},0.1);
+          border-color: rgba(${rgb},0.3);
+          color: rgba(${rgb},0.9);
         }
         .footer-div-dot {
           width: 6px;
@@ -200,7 +214,10 @@ export default function Footer() {
         }
       `}</style>
 
-      <footer className="footer-root">
+      <footer
+        className="footer-root"
+        style={color ? { background: "rgba(255,255,255,0.02)", backdropFilter: "blur(12px)" } : undefined}
+      >
         <div className="footer-top-accent" />
         <div className="footer-grid" />
         <div className="footer-orb" />
@@ -212,17 +229,16 @@ export default function Footer() {
 
             {/* ── Columna 1: Brand ── */}
             <div>
-              {/* Nombre sin logo */}
               <div style={{ marginBottom: 20 }}>
                 <div style={{ fontWeight: 900, fontSize: 20, letterSpacing: "0.04em", color: "#fff", lineHeight: 1.1 }}>
-                  EGMR <span style={{ color: "#38bdf8" }}>GROUP</span>
+                  EGMR <span style={{ color: accent }}>GROUP</span>
                 </div>
-                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(125,211,252,0.38)", marginTop: 4 }}>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: `rgba(${rgb},0.38)`, marginTop: 4 }}>
                   Soluciones tecnológicas
                 </div>
               </div>
 
-              <p style={{ fontSize: 13.5, lineHeight: 1.8, color: "rgba(186,230,253,0.48)", maxWidth: 300, marginBottom: 28 }}>
+              <p style={{ fontSize: 13.5, lineHeight: 1.8, color: `rgba(${rgb},0.48)`, maxWidth: 300, marginBottom: 28 }}>
                 Empresa tecnológica en Tijuana, B.C. México. Especialistas en seguridad electrónica, telecomunicaciones y equipamiento empresarial.
               </p>
 
@@ -264,7 +280,7 @@ export default function Footer() {
                   <div className="footer-contact-icon">💬</div>
                   <div className="footer-contact-text">
                     Atención por WhatsApp<br />
-                    <span style={{ color: "rgba(56,189,248,0.6)", fontSize: 11 }}>Respuesta rápida</span>
+                    <span style={{ color: `rgba(${rgb},0.6)`, fontSize: 11 }}>Respuesta rápida</span>
                   </div>
                 </div>
                 <div className="footer-contact-row">
@@ -277,7 +293,7 @@ export default function Footer() {
                   <div className="footer-contact-icon">🔒</div>
                   <div className="footer-contact-text">
                     Soporte técnico 24/7<br />
-                    <span style={{ color: "rgba(56,189,248,0.6)", fontSize: 11 }}>Para clientes dedicados</span>
+                    <span style={{ color: `rgba(${rgb},0.6)`, fontSize: 11 }}>Para clientes dedicados</span>
                   </div>
                 </div>
               </div>

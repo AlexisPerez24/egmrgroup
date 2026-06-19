@@ -31,18 +31,11 @@ export default function Contacto({ color = "#38bdf8" }: Props) {
         <div
           className="relative overflow-hidden rounded-[28px] p-10 text-white border"
           style={{
-            borderColor: `${color}30`,
-            background:
-              `radial-gradient(900px 420px at 20% 20%, ${color}28, transparent 60%),` +
-              `radial-gradient(800px 420px at 80% 30%, ${color}18, transparent 60%),` +
-              `linear-gradient(135deg, rgba(10,16,30,0.95), rgba(7,11,20,0.98))`,
+            borderColor: `${color}25`,
+            background: `rgba(255,255,255,0.03)`,
+            backdropFilter: "blur(12px)",
           }}
         >
-          {/* Decor */}
-          <div className="pointer-events-none absolute -top-24 -right-24 w-[360px] h-[360px] rounded-full blur-3xl"
-            style={{ background: `${color}0a` }} />
-          <div className="pointer-events-none absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full blur-3xl"
-            style={{ background: `${color}08` }} />
 
           <div className="relative">
             <h2 className="text-3xl font-extrabold tracking-tight mb-2">Contáctanos</h2>

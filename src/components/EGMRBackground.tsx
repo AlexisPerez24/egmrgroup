@@ -64,7 +64,8 @@ export default function EGMRBackground({ children }: { children: React.ReactNode
   return (
     <>
       <style>{`
-        .egmr-page section {
+        .egmr-page section,
+        .egmr-page footer.footer-root {
           background: transparent !important;
         }
       `}</style>

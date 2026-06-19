@@ -64,7 +64,8 @@ export default function EVTABackground({ children }: { children: React.ReactNode
   return (
     <>
       <style>{`
-        .evta-page section {
+        .evta-page section,
+        .evta-page footer.footer-root {
           background: transparent !important;
         }
         .evta-page .evta-keep-bg {

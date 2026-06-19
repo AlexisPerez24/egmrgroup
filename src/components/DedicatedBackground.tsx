@@ -64,7 +64,8 @@ export default function DedicatedBackground({ children }: { children: React.Reac
   return (
     <>
       <style>{`
-        .dedicated-page section {
+        .dedicated-page section,
+        .dedicated-page footer.footer-root {
           background: transparent !important;
         }
       `}</style>
