@@ -4,7 +4,7 @@ import WhatsappFloat from "../../../components/WhatsappFloat";
 import DedicatedHero from "../../../components/DedicatedHero";
 import DedicatedServicios from "../../../components/DedicatedServicios";
 import DedicatedBeneficios from "../../../components/DedicatedBeneficios";
-import DedicatedContacto from "../../../components/DedicatedContacto";
+import Contacto from "../../../components/Contacto";
 import CatalogoSection from "../../../components/CatalogoSection";
 import DedicatedBackground from "../../../components/DedicatedBackground";
 
@@ -28,7 +28,7 @@ export default function DedicatedServicesPage() {
         color="#a855f7"
         colorGlow="rgba(168,85,247,"
       />
-      <DedicatedContacto />
+      <Contacto color="#a855f7" />
       <Footer />
       <WhatsappFloat />
     </DedicatedBackground>

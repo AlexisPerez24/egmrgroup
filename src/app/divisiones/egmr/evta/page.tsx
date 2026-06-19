@@ -35,7 +35,7 @@ export default function PageEVTA() {
         color="#f97316"
         colorGlow="rgba(249,115,22,"
       />
-      <Contacto />
+      <Contacto color="#f97316" />
       <Footer />
       <WhatsappFloat />
     </EVTABackground>

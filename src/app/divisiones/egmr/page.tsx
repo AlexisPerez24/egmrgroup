@@ -36,7 +36,7 @@ export default function DivisionEGMR() {
         color="#38bdf8"
         colorGlow="rgba(56,189,248,"
       />
-      <Reveal><Contacto /></Reveal>
+      <Reveal><Contacto color="#38bdf8" /></Reveal>
       <Reveal><Footer /></Reveal>
       <WhatsappFloat />
     </EGMRBackground>
