@@ -17,9 +17,9 @@ export default function EVTAHero() {
     canvas.height = window.innerHeight;
 
     const colors = [
-      "rgba(125,211,252,",
-      "rgba(56,189,248,",
-      "rgba(186,230,253,",
+      "rgba(249,115,22,",
+      "rgba(251,146,60,",
+      "rgba(253,186,116,",
       "rgba(255,255,255,",
     ];
 
@@ -68,7 +68,7 @@ export default function EVTAHero() {
       className="relative overflow-hidden"
       style={{
         minHeight: "80vh",
-        background: "linear-gradient(160deg, #0b1622 0%, #0d1f2d 55%, #071318 100%)",
+        background: "linear-gradient(160deg, #0f0a04 0%, #1a0e05 55%, #070b14 100%)",
       }}
     >
       {/* Canvas partículas */}
@@ -83,11 +83,11 @@ export default function EVTAHero() {
         className="absolute top-0 right-0 h-full w-1/2 opacity-20 pointer-events-none"
         style={{
           background:
-            "linear-gradient(135deg, transparent 45%, #1f6b86 45%, #0ea5e9 58%, transparent 58%)",
+            "linear-gradient(135deg, transparent 45%, #7c2d0a 45%, #ea580c 58%, transparent 58%)",
         }}
       />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)" }} />
 
       <div
         className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex items-center"
@@ -98,7 +98,7 @@ export default function EVTAHero() {
           {/* LEFT */}
           <div className="text-white">
             <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur">
-              <div className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-[#f97316] animate-pulse" />
               <span className="text-sm font-semibold uppercase tracking-widest">
                 Soluciones para tu Oficina y Negocio
               </span>
@@ -106,7 +106,7 @@ export default function EVTAHero() {
 
             <h1 className="font-black mb-4 leading-tight" style={{ fontSize: "clamp(48px, 9vw, 80px)" }}>
               EVTA
-              <span className="block" style={{ color: "#38bdf8" }}>SOLUCIONES</span>
+              <span className="block" style={{ color: "#f97316" }}>SOLUCIONES</span>
             </h1>
 
             <p className="text-lg font-bold uppercase tracking-widest mb-4" style={{ color: "rgba(186,230,253,0.85)" }}>
@@ -129,7 +129,7 @@ export default function EVTAHero() {
               <Link
                 href="#contacto"
                 className="px-8 py-4 rounded-xl font-bold text-base border transition hover:bg-white/10"
-                style={{ borderColor: "rgba(56,189,248,0.4)", color: "#bae6fd" }}
+                style={{ borderColor: "rgba(249,115,22,0.4)", color: "#fed7aa" }}
               >
                 Cotizar ahora
               </Link>
@@ -150,9 +150,9 @@ export default function EVTAHero() {
                 priority
                 style={{
                   filter:
-                    "drop-shadow(0 0 20px rgba(56,189,248,0.9)) " +
-                    "drop-shadow(0 0 55px rgba(14,116,144,0.65)) " +
-                    "drop-shadow(0 0 100px rgba(56,189,248,0.3)) " +
+                    "drop-shadow(0 0 20px rgba(249,115,22,0.9)) " +
+                    "drop-shadow(0 0 55px rgba(194,65,12,0.65)) " +
+                    "drop-shadow(0 0 100px rgba(249,115,22,0.3)) " +
                     "brightness(1.05)",
                 }}
               />

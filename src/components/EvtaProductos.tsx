@@ -70,9 +70,9 @@ export default function EvtaProductos() {
     }[] = [];
 
     const colors = [
-      "rgba(125,211,252,",
-      "rgba(56,189,248,",
-      "rgba(186,230,253,",
+      "rgba(249,115,22,",
+      "rgba(251,146,60,",
+      "rgba(253,186,116,",
       "rgba(255,255,255,",
     ];
 
@@ -123,7 +123,7 @@ export default function EvtaProductos() {
       id="productos"
       className="relative py-24 overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #0b1622 0%, #0d1f2d 55%, #071318 100%)",
+        background: "#070b14",
       }}
     >
       <canvas
@@ -153,10 +153,10 @@ export default function EvtaProductos() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ventaItems.map((item, i) => (
             <Link key={i} href={`/divisiones/egmr/evta/productos/${item.key}`} className="group relative">
-              <div className="h-full rounded-2xl border border-blue-300/30 bg-white/10 backdrop-blur-sm p-8 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:border-blue-300/60 hover:bg-white/15">
+              <div className="h-full rounded-2xl border border-orange-400/20 bg-white/5 backdrop-blur-sm p-8 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:border-orange-400/50 hover:bg-white/10">
                 {/* Ícono */}
                 <div className="mb-8">
-                  <div className="w-24 h-24 rounded-2xl flex items-center justify-center border border-slate-200/30 bg-gradient-to-br from-[color:var(--egmr-teal)]/30 to-blue-600/20 shadow-lg text-5xl">
+                  <div className="w-24 h-24 rounded-2xl flex items-center justify-center border border-orange-400/30 bg-gradient-to-br from-orange-500/20 to-orange-800/20 shadow-lg text-5xl">
                     {item.icono}
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function EvtaProductos() {
 
                 {/* Badge secundario */}
                 <div className="mb-4">
-                  <span className="inline-flex rounded-full border border-blue-300/40 bg-white/10 px-4 py-1.5 text-xs font-bold text-slate-200 backdrop-blur uppercase tracking-widest">
+                  <span className="inline-flex rounded-full border border-orange-400/30 bg-white/10 px-4 py-1.5 text-xs font-bold text-slate-200 backdrop-blur uppercase tracking-widest">
                     {item.badge}
                   </span>
                 </div>
@@ -192,14 +192,14 @@ export default function EvtaProductos() {
                 <div className="space-y-2 pb-6 border-b border-white/10">
                   {item.features.map((f, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-sm text-slate-200">
-                      <span className="text-[color:var(--egmr-teal)] font-bold">✓</span>
+                      <span className="font-bold" style={{ color: "#f97316" }}>✓</span>
                       {f}
                     </div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <div className="mt-6 flex items-center gap-2 text-[color:var(--egmr-teal)] font-black group-hover:gap-3 transition-all uppercase tracking-widest text-sm">
+                <div className="mt-6 flex items-center gap-2 font-black group-hover:gap-3 transition-all uppercase tracking-widest text-sm" style={{ color: "#f97316" }}>
                   <span>Ver más</span>
                   <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
                 </div>

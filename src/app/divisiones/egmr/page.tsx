@@ -7,6 +7,7 @@ import Footer from "../../../components/Footer";
 import WhatsappFloat from "../../../components/WhatsappFloat";
 import ServiciosCotizacionLimpio from "../../../components/ServiciosCotizacion";
 import CatalogoSection from "../../../components/CatalogoSection";
+import EGMRBackground from "../../../components/EGMRBackground";
 
 export const metadata = {
   title: "EGMR - Sistemas de Seguridad",
@@ -16,47 +17,18 @@ export const metadata = {
 
 export default function DivisionEGMR() {
   const beneficios = [
-    {
-      numero: "01",
-      titulo: "EXPERIENCIA",
-      descripcion: "Equipo experto en soluciones de seguridad con años de trayectoria",
-    },
-    {
-      numero: "02",
-      titulo: "CALIDAD",
-      descripcion:
-        "Equipos de alta tecnología y marcas confiables en el mercado",
-    },
-    {
-      numero: "03",
-      titulo: "SERVICIO INTEGRAL",
-      descripcion: "Desde asesoría hasta instalación, mantenimiento y soporte técnico",
-    },
-    {
-      numero: "04",
-      titulo: "ATENCIÓN PERSONALIZADA",
-      descripcion: "Soluciones adaptadas a las necesidades específicas de tu negocio",
-    },
+    { numero: "01", titulo: "EXPERIENCIA", descripcion: "Equipo experto en soluciones de seguridad con años de trayectoria" },
+    { numero: "02", titulo: "CALIDAD", descripcion: "Equipos de alta tecnología y marcas confiables en el mercado" },
+    { numero: "03", titulo: "SERVICIO INTEGRAL", descripcion: "Desde asesoría hasta instalación, mantenimiento y soporte técnico" },
+    { numero: "04", titulo: "ATENCIÓN PERSONALIZADA", descripcion: "Soluciones adaptadas a las necesidades específicas de tu negocio" },
   ];
 
   return (
-    <main className="min-h-screen">
+    <EGMRBackground>
       <Navbar />
-
       <EGMRHero />
-
-      {/* ════════════════════════════════════════════════════════════
-          SERVICIOS PRINCIPALES
-          ════════════════════════════════════════════════════════════ */}
-      <Reveal>
-        <ServiciosCotizacionLimpio />
-      </Reveal>
-
-      {/* ════════════════════════════════════════════════════════════
-          ¿POR QUÉ ELEGIRNOS?
-          ════════════════════════════════════════════════════════════ */}
+      <Reveal><ServiciosCotizacionLimpio /></Reveal>
       <BeneficiosAnimados beneficios={beneficios} accentColor="var(--egmr-teal)" />
-
       <CatalogoSection
         empresa="EGMR"
         descripcion="Consulta nuestro catálogo completo de sistemas de seguridad, cámaras, videoporteros, control de acceso y más."
@@ -64,30 +36,9 @@ export default function DivisionEGMR() {
         color="#38bdf8"
         colorGlow="rgba(56,189,248,"
       />
-
-      {/* ════════════════════════════════════════════════════════════
-          BENEFICIOS DETALLADOS — comentado
-          ════════════════════════════════════════════════════════════ */}
-      {/* <section className="py-24 bg-gradient-to-br from-[color:var(--egmr-ink)] to-[color:var(--egmr-navy)] text-white">
-        ...
-      </section> */}
-
-      {/* ════════════════════════════════════════════════════════════
-          CONTACTO
-          ════════════════════════════════════════════════════════════ */}
-      <Reveal>
-        <Contacto />
-      </Reveal>
-
-      {/* ════════════════════════════════════════════════════════════
-          FOOTER
-          ════════════════════════════════════════════════════════════ */}
-      <Reveal>
-        <Footer />
-      </Reveal>
-
-      {/* WhatsApp */}
+      <Reveal><Contacto /></Reveal>
+      <Reveal><Footer /></Reveal>
       <WhatsappFloat />
-    </main>
+    </EGMRBackground>
   );
 }
