@@ -14,13 +14,19 @@ export default function CatalogoSection({ empresa, descripcion, pdfPath, color, 
   const [verPdf, setVerPdf] = useState(false);
   const division = pdfPath.split("/").pop()?.replace(".pdf", "") ?? "";
   const [activePdfUrl, setActivePdfUrl] = useState<string>(pdfPath);
+  const [urlTs, setUrlTs] = useState(() => Date.now());
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     if (!division) return;
-    fetch(`/api/catalogos?division=${division}`)
+    fetch(`/api/catalogos?division=${division}&t=${Date.now()}`, { cache: "no-store" })
       .then((r) => r.json())
-      .then((data) => { if (data.url) setActivePdfUrl(data.url); })
+      .then((data) => {
+        if (data.url) {
+          setActivePdfUrl(data.url);
+          setUrlTs(Date.now());
+        }
+      })
       .catch(() => {});
   }, [division, pdfPath]);
 
@@ -260,7 +266,7 @@ export default function CatalogoSection({ empresa, descripcion, pdfPath, color, 
                 </div>
               </div>
               <iframe
-                src={`${activePdfUrl}${activePdfUrl.startsWith("/") ? "#toolbar=1&navpanes=0" : ""}`}
+                src={`${activePdfUrl}?t=${urlTs}`}
                 title={`Catálogo ${empresa}`}
                 style={{ width: "100%", height: 680, border: "none", display: "block" }}
               />
