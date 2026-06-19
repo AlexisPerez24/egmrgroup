@@ -1,43 +1,46 @@
-import { put } from "@vercel/blob";
+import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextRequest, NextResponse } from "next/server";
 
 const ALLOWED = ["egmr", "evta", "dedicated"];
 
-export async function POST(req: NextRequest) {
-  const password = req.headers.get("x-admin-password");
-  const adminPassword = process.env.ADMIN_PASSWORD;
-
-  if (!adminPassword) {
-    return NextResponse.json({ error: "ADMIN_PASSWORD no configurada en el servidor" }, { status: 500 });
-  }
-  if (password !== adminPassword) {
-    return NextResponse.json({ error: "Contraseña incorrecta" }, { status: 401 });
-  }
-
-  const form = await req.formData();
-  const file = form.get("file") as File | null;
-  const division = form.get("division") as string | null;
-
-  if (!file || !division) {
-    return NextResponse.json({ error: "Faltan datos" }, { status: 400 });
-  }
-  if (!ALLOWED.includes(division)) {
-    return NextResponse.json({ error: "División inválida" }, { status: 400 });
-  }
-  if (file.type !== "application/pdf") {
-    return NextResponse.json({ error: "Solo se permiten archivos PDF" }, { status: 400 });
+export async function POST(request: NextRequest): Promise<Response> {
+  let body: HandleUploadBody;
+  try {
+    body = (await request.json()) as HandleUploadBody;
+  } catch {
+    return NextResponse.json({ error: "Petición inválida" }, { status: 400 });
   }
 
   try {
-    const blob = await put(`catalogos/${division}.pdf`, file, {
-      access: "public",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      contentType: "application/pdf",
+    const jsonResponse = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async (pathname, clientPayload) => {
+        const adminPassword = process.env.ADMIN_PASSWORD;
+        if (!adminPassword || clientPayload !== adminPassword) {
+          throw new Error("Contraseña incorrecta");
+        }
+        const division = pathname.replace("catalogos/", "").replace(".pdf", "");
+        if (!ALLOWED.includes(division)) {
+          throw new Error("División inválida");
+        }
+        return {
+          allowedContentTypes: ["application/pdf"],
+          maximumSizeInBytes: 50 * 1024 * 1024, // 50 MB
+          addRandomSuffix: false,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          allowOverwrite: true as any,
+        };
+      },
+      onUploadCompleted: async ({ blob }) => {
+        console.log("Catálogo subido:", blob.url);
+      },
     });
-    return NextResponse.json({ url: blob.url });
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : "Error al subir el archivo";
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return NextResponse.json(jsonResponse);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Error al subir" },
+      { status: 400 }
+    );
   }
 }

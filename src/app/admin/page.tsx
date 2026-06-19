@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { upload as blobUpload } from "@vercel/blob/client";
 
 const DIVISIONS = [
   {
@@ -46,26 +47,21 @@ export default function AdminPage() {
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    const res = await fetch("/api/admin/upload", {
-      method: "POST",
-      headers: { "x-admin-password": password },
-      body: (() => {
-        const fd = new FormData();
-        fd.append("division", "egmr");
-        return fd;
-      })(),
-    });
-    if (res.status === 401) {
-      setAuthError("Contraseña incorrecta. Intenta de nuevo.");
-    } else if (res.status === 400) {
-      // missing file → password was accepted
-      setAuthed(true);
-      setAuthError("");
-    } else if (res.status === 500) {
-      setAuthError("El servidor no tiene configurada la contraseña. Contacta al desarrollador.");
-    } else {
-      setAuthed(true);
-      setAuthError("");
+    try {
+      const res = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "x-admin-password": password },
+      });
+      if (res.status === 401) {
+        setAuthError("Contraseña incorrecta. Intenta de nuevo.");
+      } else if (res.status === 500) {
+        setAuthError("El servidor no tiene configurada la contraseña. Contacta al desarrollador.");
+      } else if (res.ok) {
+        setAuthed(true);
+        setAuthError("");
+      }
+    } catch {
+      setAuthError("Error de conexión. Intenta de nuevo.");
     }
   }
 
@@ -78,25 +74,17 @@ export default function AdminPage() {
     }
     setStatus(division, { type: "loading", msg: "Subiendo catálogo…" });
 
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("division", division);
-
     try {
-      const res = await fetch("/api/admin/upload", {
-        method: "POST",
-        headers: { "x-admin-password": password },
-        body: fd,
+      await blobUpload(`catalogos/${division}.pdf`, file, {
+        access: "public",
+        handleUploadUrl: "/api/admin/upload",
+        clientPayload: password,
       });
-      const data = await res.json();
-      if (!res.ok) {
-        setStatus(division, { type: "error", msg: data.error ?? "Error al subir." });
-      } else {
-        setStatus(division, { type: "ok", msg: "¡Catálogo actualizado correctamente!" });
-        if (input) input.value = "";
-      }
-    } catch {
-      setStatus(division, { type: "error", msg: "Error de red. Intenta de nuevo." });
+      setStatus(division, { type: "ok", msg: "¡Catálogo actualizado correctamente!" });
+      if (input) input.value = "";
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Error al subir.";
+      setStatus(division, { type: "error", msg });
     }
   }
 
