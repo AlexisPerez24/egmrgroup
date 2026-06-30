@@ -634,15 +634,16 @@ export default function Hero() {
                   </div>
                 )}
 
-                {/* Logo */}
-                <div style={{
-                  width: d.size,
-                  height: d.size,
-                  position: "relative",
-                  animation: activeCard === d.key ? "none" : d.animation,
-                  transform: activeCard === d.key ? "scale(1.1)" : "scale(1)",
-                  transition: "transform 0.3s ease",
-                }}>
+                {/* Logo — clic navega a la división */}
+                <Link
+                  href={d.href}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ display: "block", width: d.size, height: d.size, position: "relative",
+                    animation: activeCard === d.key ? "none" : d.animation,
+                    transform: activeCard === d.key ? "scale(1.1)" : "scale(1)",
+                    transition: "transform 0.3s ease",
+                  }}
+                >
                   <Image
                     src={d.logo}
                     alt={d.label}
@@ -655,7 +656,7 @@ export default function Hero() {
                       transition: "filter 0.3s ease",
                     }}
                   />
-                </div>
+                </Link>
 
                 {/* Label */}
                 <span style={{
